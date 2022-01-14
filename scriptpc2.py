@@ -61,8 +61,8 @@ for line in d:
     if "import asyncio" in line:
         f.write("import asyncio \n")
         f.write("import socket \n")
-        f.write("mySocket = socket.socket ( socket.AF_INET, socket.SOCK_STREAM ) \n")
-        f.write("IPAddr = mySocket.bind ( ( '', 80 ) )")
+        f.write("hostname = socket.gethostname() \n")
+        f.write("IPAddr = socket.gethostbyname(hostname)")
     else:
         f.write(line)
 f.close()
@@ -94,7 +94,7 @@ d=open("productpage_monolith.py","r")
 f=open("auxiliar.py","w")
 for line in d:
     if "app.run(host='::', port=p, debug=True, threaded=True)" in line:
-        f.write("        app.run(host=IPAddr, port=p, debug=True, threaded=True) \n")
+        f.write("        app.run(host='::', port=p, debug=True, threaded=True) \n")
     else:
         f.write(line)
 f.close()
