@@ -90,6 +90,19 @@ d.close()
 call(["cp","auxiliar.py", "productpage_monolith.py"])
 call(["rm", "auxiliar.py"]) 
 
+d=open("productpage_monolith.py","r")
+f=open("auxiliar.py","w")
+for line in d:
+    if "app.run(host='::', port=p, debug=True, threaded=True)" in line:
+        f.write("        app.run(host='0.0.0.0', port=p, debug=True, threaded=True) \n")
+    else:
+        f.write(line)
+f.close()
+d.close()
+call(["cp","auxiliar.py", "productpage_monolith.py"])
+call(["rm", "auxiliar.py"])
+
+
 call(["python3","productpage_monolith.py","{}".format(sys.argv[1])])
 
 
