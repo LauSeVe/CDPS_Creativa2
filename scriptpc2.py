@@ -61,8 +61,8 @@ for line in d:
     if "import asyncio" in line:
         f.write("import asyncio \n")
         f.write("import socket \n")
-        f.write("hostname = socket.gethostname() \n")
-        f.write("IPAddr = socket.gethostbyname(hostname)")
+        f.write("mySocket = socket.socket ( socket.AF_INET, socket.SOCK_STREAM ) \n")
+        f.write("IPAddr = mySocket.bind ( ( '', 80 ) )")
     else:
         f.write(line)
 f.close()
