@@ -94,7 +94,7 @@ d=open("productpage_monolith.py","r")
 f=open("auxiliar.py","w")
 for line in d:
     if "app.run(host='::', port=p, debug=True, threaded=True)" in line:
-        f.write("        app.run(host='0.0.0.0', port=p, debug=True, threaded=True) \n")
+        f.write("        app.run(host='10.128.0.5', port=p, debug=True, threaded=True) \n")
     else:
         f.write(line)
 f.close()
