@@ -12,10 +12,6 @@ string= '{% block title %}'
 string2= '{% endblock %}'
 newstring= string + string1 + string2 
 
-
-
-
-
 path=str(os.getcwd())
 print(path)
 path1= path +"/practica_creativa2/bookinfo/src/productpage"
